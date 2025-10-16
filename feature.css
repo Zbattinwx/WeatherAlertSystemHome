@@ -1,0 +1,81 @@
+body {
+    background-color: transparent;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.feature-container {
+    position: absolute;
+    bottom: 150px; /* You can still adjust this for vertical position */
+    left: 50%;     /* Position the left edge at the screen's center */
+    width: 550px;
+    border-radius: 10px;
+    background-color: rgba(36, 40, 59, 0.95);
+    border: 1px solid #7aa2f7;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    opacity: 1;
+    transform: translateX(-50%); /* Shift left by half its own width to center */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.feature-container.hidden {
+    opacity: 0;
+    transform: translate(-50%, 50px); /* Combine horizontal and vertical transforms */
+    pointer-events: none;
+}
+
+/* Colors for different alert types */
+.feature-container.TO { border-left: 10px solid #ff002f; }
+.feature-container.SV, .feature-container.SVR { border-left: 10px solid #FFA500; }
+.feature-container.FF, .feature-container.FFW { border-left: 10px solid #84ff00; }
+.feature-container.SPS { border-left: 10px solid #7dcfff; }
+
+.feature-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 1px solid #414868;
+}
+.feature-header i { margin-right: 15px; }
+
+.feature-body {
+    padding: 20px;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.feature-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 1.1em;
+    background-color: rgba(0,0,0,0.2);
+    border-top: 1px solid #414868;
+}
+
+#feature-impacts, #feature-tags {
+    display: flex;
+    gap: 10px;
+}
+
+.tag {
+    background-color: #ff9e64;
+    color: #1a1d2e;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+.tag.emergency { background-color: #f7768e; }
+
+.expires {
+    margin-left: auto;
+    font-weight: 500;
+}

@@ -1,0 +1,79 @@
+/* Remove default margins and make the map fill the entire screen */
+html, body, #map {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #1a1d2e; /* Match your dashboard's dark background */
+}
+
+/* Make sure Leaflet controls don't get click events since they are disabled */
+.leaflet-container {
+    pointer-events: none;
+}
+
+/* Style for the city labels */
+.city-label {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* This new style creates the authentic Interstate shield look */
+.interstate-shield-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 28px; /* Adjusted height for better proportions */
+    background-color: #003f87; /* Official Interstate blue */
+    border: 2px solid white;
+    border-radius: 5px;
+    /* The red bar at the top of the shield */
+    box-shadow: 0 -5px 0 0 #c43147 inset;
+    font-family: 'Arial Black', Gadget, sans-serif; /* A font that looks like highway signs */
+    font-weight: bold;
+    color: white;
+    font-size: 13px;
+    line-height: 1.2; /* Fine-tune vertical alignment */
+}
+
+/* This is the old highway label style - it's no longer needed but kept for reference */
+.highway-text-label {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: 1px 1px 2px #000;
+}
+.legend {
+    padding: 8px 12px;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    background: rgba(26, 29, 46, 0.8); /* Semi-transparent dark background */
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    line-height: 24px;
+    color: #c0c5d5;
+    width: 200px;
+}
+.legend h4 {
+    margin: 0 0 5px 0;
+    color: #ffffff;
+    font-size: 16px;
+    border-bottom: 1px solid #414868;
+    padding-bottom: 5px;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    border-radius: 3px;
+}

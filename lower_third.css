@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Roboto:wght@400&display=swap');
+
+:root {
+    /* Colors inspired by your logo */
+    --onw-red: #E41E26;
+    --onw-yellow: #F7B93B;
+    --onw-blue: #003366; 
+    --text-primary: #FFFFFF;
+    --text-secondary: #d1d1d1;
+    --bg-dark: rgba(10, 10, 25, 0.85);
+
+    /* Animation Timings */
+    --anim-speed: 0.6s;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+#lower-third-container {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    font-family: 'Teko', sans-serif;
+    transform: translateX(-110%); /* Start further off-screen to ensure a clean entrance */
+    opacity: 0;
+    transition: transform var(--anim-speed) ease-in-out, opacity var(--anim-speed) ease-in-out;
+}
+
+#lower-third-container.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.logo-container {
+    width: 250px; /* CHANGED: Made logo container wider */
+    height: 115px; /* CHANGED: Increased height */
+    background: linear-gradient(45deg, var(--onw-red), var(--onw-yellow));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transform: skewX(-20deg);
+    margin-left: 30px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+
+.logo-container img {
+    height: 90%;
+    transform: skewX(20deg);
+}
+
+.text-background {
+    background-color: var(--bg-dark);
+    /* CHANGED: Increased padding-left to create the overlap that the negative margin used to */
+    padding: 10px 30px 10px 60px; 
+    /* margin-left: -30px; <-- REMOVED: No longer needed for the overlap effect */
+    height: 95px; /* CHANGED: Increased height to match logo */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    transform: skewX(-20deg);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+
+.text-container {
+    transform: skewX(20deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Base state for animated text */
+.name-text span, .title-text span {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* Active state for text animations */
+#lower-third-container.active .name-text span {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+
+#lower-third-container.active .title-text span {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.45s;
+}
+
+.name-text {
+    font-size: 46px; /* CHANGED: Increased font size */
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    line-height: 1.1;
+    overflow: hidden;
+}
+
+.title-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px; /* CHANGED: Increased font size */
+    color: var(--text-secondary);
+    line-height: 1.1;
+    overflow: hidden;
+}

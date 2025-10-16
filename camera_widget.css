@@ -1,0 +1,61 @@
+/* camera_widget.css */
+body {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.camera-container {
+    border: 2px solid #2c3e50;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.camera-container.hidden {
+    display: none;
+}
+
+#camera-header {
+    background-color: #e67e22; /* ODOT Orange */
+    color: #ffffff;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#camera-title {
+    flex-grow: 1;
+    text-align: center;
+    padding-left: 20px; /* Space for the close button */
+}
+
+#close-widget-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+#camera-body {
+    padding: 5px;
+}
+
+#camera-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0 0 5px 5px;
+}

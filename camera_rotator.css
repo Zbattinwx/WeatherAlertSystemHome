@@ -1,0 +1,55 @@
+body {
+    background-color: transparent;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+    margin: 0;
+    padding: 20px;
+}
+
+.widget-container {
+    background-color: rgba(26, 29, 46, 0.9);
+    border-left: 5px solid #e67e22; /* ODOT Orange */
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transform: translateX(500px);
+    opacity: 0;
+    transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+}
+
+.widget-container.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.widget-container.hidden {
+    display: none;
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 1.1em;
+    font-weight: 700;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.widget-header i {
+    margin-right: 10px;
+}
+
+.widget-body img {
+    width: 100%;
+    display: block;
+    background-color: #000;
+}
+
+.widget-footer {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    text-align: center;
+    font-weight: 500;
+    background-color: rgba(0,0,0,0.2);
+}

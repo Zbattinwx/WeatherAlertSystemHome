@@ -1,0 +1,67 @@
+/* ==================================================================
+WINTER THEME OVERRIDE
+==================================================================
+These styles are ONLY applied when 'winter_mode_enabled' is true,
+adding a winter-themed look to the dashboard.
+*/
+
+body.winter-mode-active {
+    /* Define the custom color properties for winter alerts */
+    --wsa-color: #4682B4; /* DarkSlateBlue for watches */
+    --wsw-color: #FF69B4; /* HotPink for warnings */
+    --sqw-color: #C71585; /* MediumVioletRed for squalls */
+    --ww-color:  #7B68EE; /* MediumSlateBlue for advisories */
+}
+
+/* Apply the background styles for the winter counter items */
+body.winter-mode-active .counter-item.wsw-warn { background-image: linear-gradient(to top, #d45c9a, var(--wsw-color)); }
+body.winter-mode-active .counter-item.wsa-watch { background-image: linear-gradient(to top, #3a316d, var(--wsa-color)); }
+body.winter-mode-active .counter-item.sqw-warn { background-image: linear-gradient(to top, #a6126a, var(--sqw-color)); }
+body.winter-mode-active .counter-item.ww-advisory { background-image: linear-gradient(to top, #6556c5, var(--ww-color)); }
+
+/* Apply the border colors for winter alert cards */
+body.winter-mode-active .alert-card.wsa { border-color: var(--wsa-color); }
+body.winter-mode-active .alert-card.wsw { border-color: var(--wsw-color); }
+body.winter-mode-active .alert-card.sqw { border-color: var(--sqw-color); }
+body.winter-mode-active .alert-card.ww { border-color: var(--ww-color); }
+
+/* --- Styles for the Snow Emergency Map --- */
+body.winter-mode-active #snow-emergency-map {
+    background-color: var(--bg-color);
+}
+
+body.winter-mode-active .legend {
+    background-color: rgba(44, 52, 64, 0.9);
+    color: var(--text-color);
+    padding: 10px;
+    line-height: 1.8;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
+    font-size: 14px;
+}
+
+body.winter-mode-active .legend span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    border: 1px solid rgba(255,255,255,0.3);
+    vertical-align: middle;
+}
+
+body.winter-mode-active .last-updated {
+    background-color: rgba(44, 52, 64, 0.9);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+}
+
+body.winter-mode-active #snow-emergency-map .leaflet-interactive {
+    stroke: #d8dee9 !important;
+    stroke-opacity: 0.6 !important;
+    stroke-width: 1.5px !important;
+}

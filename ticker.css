@@ -1,0 +1,165 @@
+body {
+    background-color: transparent;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 2px 2px #000, -2px -2px 2px #000, 2px -2px 2px #000,
+                 -2px 2px 2px #000, 2px 0px 2px #000, 0px 2px 2px #000,
+                 -2px 0px 2px #000, 0px -2px 2px #000;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Main Layout --- */
+.ticker-container {
+    display: flex;
+    align-items: stretch; /* Changed to stretch for full height */
+    font-size: 1.4em;
+    font-weight: 500;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background-color: rgba(36, 40, 59, 0.9);
+}
+
+/* --- NEW: Logo Styles --- */
+.logo-container {
+  flex-shrink: 0;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 120px;
+}
+.logo-container img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto; 
+  display: block;
+}
+
+/* --- Colors --- */
+.ticker-container.TO { background-color: rgba(255, 0, 0, 1.0); }
+.ticker-container.SV, .ticker-container.SVR { background-color: rgb(255, 165, 0); }
+.ticker-container.FF, .ticker-container.FFW { background-color: #62ff00; }
+.ticker-container.SPS { background-color: #417b9c; }
+.ticker-container.SVA { background-color: #DB7093; }
+.ticker-container.TOA { background-color: #FFFF00; }
+.ticker-container.WSA { background-color: #4682B4; }
+.ticker-container.WSW { background-color: #FF69B4; }
+.ticker-container.SQW { background-color: #C71585; }
+.ticker-container.WW { background-color: #7B68EE; }
+
+/* --- Text & Scrolling --- */
+.ticker-icon {
+    display: flex;
+    align-items: center;
+    margin: 0 15px; /* This sets 15px margin on the left and right of the icon */
+}
+.ticker-expires {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    margin-left: 15px;
+    padding-right: 15px; /* Add padding here now */
+}
+
+.text-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-width: 0;
+    overflow: hidden;
+    
+}
+
+.top-row {
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.9;
+    padding-left: 10px;
+
+}
+#ticker-state {
+    margin-left: 5px;
+    display: none;
+}
+
+.bottom-row {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-top: 2px;
+
+}
+
+#ticker-locations {
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 10px;
+
+    
+}
+
+#ticker-locations > span {
+    display: inline-block;
+
+}
+
+#ticker-locations.scrolling > span {
+    padding-left: 100%;
+    animation-name: scroll-text;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll-text {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-100%); }
+}
+
+
+/* --- "No Alerts" Styles --- */
+.ticker-container.no-alerts-active {
+    background-image: linear-gradient(to right, #2c3e50, #47a2f7, #2c3e50);
+    background-size: 300% 100%;
+    animation: gradient-cycle 10s infinite alternate;
+}
+
+.ticker-container.no-alerts-active .top-row,
+.ticker-container.no-alerts-active .ticker-expires,
+.ticker-container.no-alerts-active .ticker-icon {
+    display: none;
+}
+
+.ticker-container.no-alerts-active .text-wrapper,
+.ticker-container.no-alerts-active .bottom-row {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.ticker-container.no-alerts-active #ticker-locations {
+    display: flex;
+    justify-content: center; /* Center short message */
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.ticker-container.no-alerts-active #ticker-locations.scrolling {
+    justify-content: flex-start; /* Un-center for long scrolling message */
+}
+
+@keyframes gradient-cycle {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
